@@ -57,6 +57,7 @@ public class Main {
 		System.out.println(numList.stream().reduce(1, (a,b)->a*b));
 		
 		System.out.println(numList.stream().collect(Collectors.partitioningBy(n->n%2==0)));
+		System.out.println(numList.stream().mapToInt(n->n).sum());
 		
 		
 		//forEach(n->{System.out.println(n);});
@@ -89,6 +90,19 @@ public class Main {
 		System.out.println(students.stream().collect(Collectors.groupingBy(name->name.charAt(0),Collectors.counting())));
 		System.out.println(students.stream().collect(Collectors.groupingBy(name->name.charAt(0),Collectors.
 				maxBy(Comparator.comparingInt(String::length)))));
+		System.out.println(students.stream().collect(Collectors.joining(",")));
+		
+		
+		List<List<Integer>> lst=List.of(List.of(1, 2,3),List.of(4,5,6),List.of(7,8,9));
+		
+		System.out.println(lst.stream().flatMap(list->list.stream()).toList());
+		List<List<String>> ls=List.of(  List.of("Ravi", "Raj"),
+			    List.of("Alice", "Anil"),
+			    List.of("Bob"));
+		System.out.println(ls.stream().flatMap(list->list.stream()).toList());
+		
+		
+		
 	
 		
 	}
